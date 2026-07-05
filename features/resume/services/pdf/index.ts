@@ -1,0 +1,1 @@
+export { downloadResume } from "./downloadResume";

@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 10, 10, 10;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Print styles for PDF generation */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  /* Better PDF layout */
+  #resume-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  
+  /* Optimize spacing for PDF */
+  .print\:p-6 {
+    padding: 1.5rem !important;
+  }
+  
+  .print\:mb-6 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .print\:mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .print\:mb-3 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .print\:mb-1 {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .print\:space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  .print\:space-y-2 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  
+  .print\:space-y-0\.5 > * + * {
+    margin-top: 0.125rem !important;
+  }
+  
+  .print\:space-x-2 > * + * {
+    margin-left: 0.5rem !important;
+  }
+  
+  .print\:gap-6 {
+    gap: 1.5rem !important;
+  }
+  
+  .print\:gap-1 {
+    gap: 0.25rem !important;
+  }
+  
+  .print\:gap-0\.5 {
+    gap: 0.125rem !important;
+  }
+  
+  .print\:text-xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+  
+  .print\:text-lg {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+  }
+  
+  .print\:text-base {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+  
+  .print\:text-sm {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+  }
+  
+  .print\:text-xs {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .max-w-6xl {
+    max-width: none !important;
+  }
+  
+  #resume-content {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  
+  .min-h-screen {
+    padding: 0 !important;
+  }
+}
+
+/* PDF-specific page break controls */
+.page-break-before {
+  page-break-before: always;
+  break-before: page;
+}
+
+.page-break-after {
+  page-break-after: always;
+  break-after: page;
+}
+
+.avoid-page-break {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* PDF-specific fixes for better rendering */
+@media print {
+  .resume-icon {
+    display: inline-block !important;
+    vertical-align: baseline !important;
+    margin-right: 4px !important;
+  }
+  
+  /* Fix hobby items layout in PDF */
+  .hobby-item {
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .hobby-icon {
+    flex-shrink: 0 !important;
+    margin-right: 4px !important;
+    display: inline-block !important;
+  }
+  
+  .hobby-text {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+  
+  /* Ensure proper spacing for location/date icons */
+  .location-date-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+  
+  .location-date-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+} 
