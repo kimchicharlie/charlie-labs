@@ -26,7 +26,7 @@ export const portfolioData: PortfolioData = {
   experience: [
     {
       title: {
-        en: "Senior Full Stack Software Developer",
+        en: "Senior Full-Stack Developer",
         fr: "Développeur full-stack senior",
       },
       company: "STINGRAY",
@@ -41,13 +41,15 @@ export const portfolioData: PortfolioData = {
       description: {
         en: [
           "Built a real-time karaoke scoring system for smart TVs and in-car displays using AudioWorklet, WebAssembly, Service Workers and Lightning.js on resource-constrained devices.",
-          "Delivered 3 Stingray karaoke apps for the Samsung VXT platform in partnership with Samsung.",
-          "Develop music streaming platform features with React, TypeScript and Node.js.",
+          "Built a real-time karaoke scoring system for smart TVs and in-car displays using AudioWorklet, WebAssembly, Service Workers and Lightning.js on resource-constrained devices.",
+          "Delivered three Stingray karaoke applications for the Samsung VXT platform in partnership with Samsung.",
+          "Develop and maintain music-streaming features across smart-TV and automotive platforms using React, TypeScript and Node.js.",
         ],
         fr: [
           "Conçu un système de notation de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
-          "Livré 3 applications karaoké Stingray pour la plateforme Samsung VXT en partenariat avec Samsung.",
-          "Développe des fonctionnalités de la plateforme de streaming musical avec React, TypeScript et Node.js.",
+          "Conçu un système de scoring de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
+          "Livré trois applications de karaoké Stingray pour la plateforme Samsung VXT en partenariat avec Samsung.",
+          "Développement et maintient de fonctionnalités de streaming musical pour téléviseurs intelligents et plateformes automobiles avec React, TypeScript et Node.js.",
         ],
       },
       technologies: [
@@ -64,8 +66,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: {
-        en: "Full Stack Developer",
-        fr: "Développeur Full Stack",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "BOTPRESS",
       location: {
@@ -99,8 +101,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: {
-        en: "Full Stack Developer",
-        fr: "Développeur Full Stack",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "MAPLR",
       location: {
@@ -126,8 +128,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: {
-        en: "Full Stack Developer",
-        fr: "Développeur Full Stack",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "BELLMAN",
       location: {
@@ -166,8 +168,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: {
-        en: "Full Stack Developer",
-        fr: "Développeur Full Stack",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "SIGFOX",
       location: {
@@ -206,8 +208,8 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: {
-        en: "Full Stack Developer",
-        fr: "Développeur Full Stack",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "MAESTRO CORPORATION",
       location: {
@@ -221,9 +223,11 @@ export const portfolioData: PortfolioData = {
       description: {
         en: [
           "Built high-traffic ticketing platforms and business applications with React and Node.js.",
+          "Developed REST microservices and data-driven features using Express and MongoDB.",
         ],
         fr: [
           "Développé des plateformes de billetterie à fort trafic et des applications métier avec React et Node.js.",
+          "Développé des microservices REST et des fonctionnalités orientées données avec Express et MongoDB.",
         ],
       },
       technologies: [
@@ -233,7 +237,6 @@ export const portfolioData: PortfolioData = {
         "MongoDB",
         "Redux",
         "Docker",
-        "Elasticsearch",
       ],
       type: "full-time",
     },

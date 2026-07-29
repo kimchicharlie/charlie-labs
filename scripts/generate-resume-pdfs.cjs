@@ -64,6 +64,30 @@ function paragraph(doc, text, y, options = {}) {
   return doc.y;
 }
 
+function textHeight(doc, text, options = {}) {
+  return doc
+    .font(options.bold ? "Bold" : "Regular")
+    .fontSize(options.size || 7.4)
+    .heightOfString(text, {
+      width: options.width || 536,
+      lineGap: options.lineGap ?? 1.2,
+    });
+}
+
+function experienceHeight(doc, item, language) {
+  let height = 34;
+  for (const bullet of local(item.description, language)) {
+    height += textHeight(doc, bullet, { width: 510, size: 7.5 }) + 2.5;
+  }
+  const label = language === "fr" ? "Technologies :" : "Technologies:";
+  height +=
+    textHeight(doc, `${label} ${item.technologies.join(" · ")}`, {
+      width: 520,
+      size: 7,
+    }) + 10;
+  return height;
+}
+
 function experience(doc, item, language, y) {
   doc
     .strokeColor(COLORS.primary)
@@ -86,24 +110,28 @@ function experience(doc, item, language, y) {
     doc,
     `${local(item.location, language)}  |  ${local(item.period, language)}`,
     y + 22,
-    { x: 48, size: 6.7, color: COLORS.muted },
+    { x: 48, size: 7, color: COLORS.muted },
   );
   let cursor = y + 34;
   for (const bullet of local(item.description, language)) {
-    doc.font("Regular").fontSize(7).fillColor(COLORS.primary).text("•", 49, cursor);
+    doc
+      .font("Regular")
+      .fontSize(7.5)
+      .fillColor(COLORS.primary)
+      .text("•", 49, cursor);
     cursor = paragraph(doc, bullet, cursor, {
       x: 59,
       width: 510,
-      size: 7,
+      size: 7.5,
     });
-    cursor += 2;
+    cursor += 2.5;
   }
   const label = language === "fr" ? "Technologies :" : "Technologies:";
   cursor = paragraph(
     doc,
     `${label} ${item.technologies.join(" · ")}`,
     cursor + 1,
-    { x: 48, width: 520, size: 6.5, color: COLORS.muted },
+    { x: 48, width: 520, size: 7, color: COLORS.muted },
   );
   return cursor + 9;
 }
@@ -130,19 +158,31 @@ function education(doc, item, language, y) {
     doc,
     `${local(item.location, language)}  |  ${local(item.period, language)}`,
     y + 22,
-    { x: 48, size: 6.7, color: COLORS.muted },
+    { x: 48, size: 7, color: COLORS.muted },
   );
   let cursor = y + 34;
   for (const bullet of local(item.description, language)) {
-    doc.font("Regular").fontSize(7).fillColor(COLORS.accent).text("•", 49, cursor);
+    doc
+      .font("Regular")
+      .fontSize(7.5)
+      .fillColor(COLORS.accent)
+      .text("•", 49, cursor);
     cursor = paragraph(doc, bullet, cursor, {
       x: 59,
       width: 510,
-      size: 7,
+      size: 7.5,
     });
-    cursor += 2;
+    cursor += 2.5;
   }
   return cursor + 8;
+}
+
+function educationHeight(doc, item, language) {
+  let height = 34;
+  for (const bullet of local(item.description, language)) {
+    height += textHeight(doc, bullet, { width: 510, size: 7.5 }) + 2.5;
+  }
+  return height + 8;
 }
 
 function header(doc, language) {
@@ -259,19 +299,57 @@ async function createLetter(language) {
     10;
   y = technologies(doc, language, y);
   y = sectionTitle(doc, language === "fr" ? "EXPÉRIENCES" : "EXPERIENCE", y);
-  data.experience.slice(0, 3).forEach((item) => {
+  const educationHeightTotal =
+    22 +
+    data.education.reduce(
+      (total, item) => total + educationHeight(doc, item, language),
+      0,
+    ) +
+    48;
+  const roleHeights = data.experience.map((item) =>
+    experienceHeight(doc, item, language),
+  );
+  const pageTwoStart = 49;
+  let splitIndex = -1;
+  for (let index = 1; index < roleHeights.length; index += 1) {
+    const pageOneRoles = roleHeights
+      .slice(0, index)
+      .reduce((total, height) => total + height, 0);
+    const pageTwoRoles = roleHeights
+      .slice(index)
+      .reduce((total, height) => total + height, 0);
+    const pageOneRemaining = 690 - (y + pageOneRoles);
+    const pageTwoRemaining =
+      770 - (pageTwoStart + pageTwoRoles + educationHeightTotal);
+    if (pageOneRemaining < 0 || pageTwoRemaining < 0) continue;
+    splitIndex = index;
+  }
+  if (splitIndex < 0) {
+    throw new Error(`${suffix} content cannot fit on two balanced pages`);
+  }
+
+  let pageNumber = 1;
+  data.experience.forEach((item, index) => {
+    if (index === splitIndex) {
+      doc.addPage();
+      pageNumber += 1;
+      y = sectionTitle(
+        doc,
+        language === "fr" ? "EXPÉRIENCES" : "EXPERIENCE",
+        28,
+      );
+    }
     y = experience(doc, item, language, y);
   });
 
-  doc.addPage();
-  y = sectionTitle(
-    doc,
-    language === "fr" ? "EXPÉRIENCES" : "EXPERIENCE",
-    28,
-  );
-  data.experience.slice(3).forEach((item) => {
-    y = experience(doc, item, language, y);
-  });
+  if (y + educationHeightTotal > 770 && pageNumber === 1) {
+    doc.addPage();
+    pageNumber += 1;
+    y = 28;
+  }
+  if (y + educationHeightTotal > 770) {
+    throw new Error(`${suffix} education and footer exceed two pages`);
+  }
   y = sectionTitle(
     doc,
     language === "fr" ? "FORMATION" : "EDUCATION",
