@@ -47,7 +47,7 @@ export const portfolioData: PortfolioData = {
         fr: [
           "Conçu un système de notation de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
           "Livré trois applications de karaoké Stingray pour la plateforme Samsung VXT en partenariat avec Samsung.",
-          "Développement et maintient de fonctionnalités de streaming musical pour téléviseurs intelligents et plateformes automobiles avec React, TypeScript et Node.js.",
+          "Développé et maintenu des fonctionnalités de streaming musical pour téléviseurs intelligents et systèmes embarqués automobiles avec React, TypeScript et Node.js.",
         ],
       },
       technologies: [
@@ -117,7 +117,7 @@ export const portfolioData: PortfolioData = {
         ],
         fr: [
           "Développé de zéro le frontend d’une application interne avec React, TypeScript, Zustand et React Query.",
-          "Intervenu chez Intact comme consultant Maplr afin de migrer des applications vers les nouvelles bibliothèques internes de composants React.",
+          "Intervenu chez Intact comme consultant Maplr afin de migrer des applications vers les nouvelles librairies internes de composants React.",
         ],
       },
       technologies: ["React", "TypeScript", "Zustand", "React Query"],
@@ -182,13 +182,11 @@ export const portfolioData: PortfolioData = {
           "Rewrote legacy Node.js REST API with Koa.",
           "Migrated applications from OVH to GCP Kubernetes infrastructure.",
           "Built and documented a shared React component library aligned with the Sigfox design system.",
-          "Mentored 2 developers on React and Node.js best practices.",
         ],
         fr: [
           "Réécrit l'API REST legacy Node.js avec Koa.",
           "Migré les applications d'OVH vers une infrastructure Kubernetes sur GCP.",
           "Développé et documenté une librairie React partagée conforme au design system Sigfox.",
-          "Encadré 2 développeurs sur les bonnes pratiques React et Node.js.",
         ],
       },
       technologies: [
