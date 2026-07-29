@@ -302,7 +302,6 @@ export const portfolioData: PortfolioData = {
     { name: "MongoDB", category: "core" },
     { name: "AWS", category: "core" },
     { name: "Docker", category: "core" },
-    { name: "Kubernetes", category: "core" },
     { name: "Jest", category: "core" },
     { name: "Service Workers", category: "specialized" },
     { name: "WebAssembly", category: "specialized" },
