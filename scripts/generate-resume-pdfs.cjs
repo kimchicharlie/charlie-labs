@@ -274,7 +274,7 @@ async function createLetter(language) {
     info: {
       Title: `Charlie Henin Resume (${suffix})`,
       Author: "Charlie Henin",
-      Subject: "Senior Full-Stack Developer Resume",
+      Subject: "Full-Stack Developer Resume",
       CreationDate: new Date(0),
       ModDate: new Date(0),
     },

@@ -4,16 +4,16 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "CHARLIE HENIN",
     title: {
-      en: "SENIOR FULL-STACK DEVELOPER",
-      fr: "DÉVELOPPEUR FULL-STACK SENIOR",
+      en: "FULL-STACK DEVELOPER",
+      fr: "DÉVELOPPEUR FULL-STACK",
     },
     location: {
       en: "Montreal, QC, Canada",
       fr: "Montreal, QC, Canada",
     },
     about: {
-      en: "Senior full-stack developer with 8+ years of experience building and modernizing web products with TypeScript, React and Node.js. Experienced in performance-constrained smart-TV and automotive environments, SaaS products and high-traffic platforms.",
-      fr: "Développeur full-stack senior avec plus de 8 ans d'expérience dans la création et la modernisation de produits web avec TypeScript, React et Node.js. Expérience en environnements contraints (téléviseurs intelligents, automobile), produits SaaS et plateformes à fort trafic.",
+      en: "Full-stack developer with 8+ years of experience building and modernizing web products with TypeScript, React and Node.js. Experienced in performance-constrained smart-TV and automotive environments, SaaS products and high-traffic platforms.",
+      fr: "Développeur full-stack avec plus de 8 ans d'expérience dans la création et la modernisation de produits web avec TypeScript, React et Node.js. Expérience en environnements contraints (téléviseurs intelligents, automobile), produits SaaS et plateformes à fort trafic.",
     },
   },
   contact: {
@@ -26,8 +26,8 @@ export const portfolioData: PortfolioData = {
   experience: [
     {
       title: {
-        en: "Senior Full-Stack Developer",
-        fr: "Développeur full-stack senior",
+        en: "Full-Stack Developer",
+        fr: "Développeur full-stack",
       },
       company: "STINGRAY",
       location: {
