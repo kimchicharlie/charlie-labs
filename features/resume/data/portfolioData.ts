@@ -41,13 +41,11 @@ export const portfolioData: PortfolioData = {
       description: {
         en: [
           "Built a real-time karaoke scoring system for smart TVs and in-car displays using AudioWorklet, WebAssembly, Service Workers and Lightning.js on resource-constrained devices.",
-          "Built a real-time karaoke scoring system for smart TVs and in-car displays using AudioWorklet, WebAssembly, Service Workers and Lightning.js on resource-constrained devices.",
           "Delivered three Stingray karaoke applications for the Samsung VXT platform in partnership with Samsung.",
           "Develop and maintain music-streaming features across smart-TV and automotive platforms using React, TypeScript and Node.js.",
         ],
         fr: [
           "Conçu un système de notation de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
-          "Conçu un système de scoring de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
           "Livré trois applications de karaoké Stingray pour la plateforme Samsung VXT en partenariat avec Samsung.",
           "Développement et maintient de fonctionnalités de streaming musical pour téléviseurs intelligents et plateformes automobiles avec React, TypeScript et Node.js.",
         ],
@@ -60,7 +58,6 @@ export const portfolioData: PortfolioData = {
         "Lightning.js",
         "Service Workers",
         "AudioWorklet",
-        "WebAssembly",
       ],
       type: "full-time",
     },
