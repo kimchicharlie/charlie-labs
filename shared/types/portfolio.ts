@@ -8,7 +8,7 @@ export interface ContactInfo {
 
 export interface Technology {
   name: string;
-  category: "frontend" | "backend" | "database" | "tools" | "other";
+  category: "core" | "specialized";
 }
 
 export interface LocalizedContent {
@@ -49,11 +49,14 @@ export interface PortfolioData {
   personalInfo: {
     name: string;
     title: LocalizedContent;
+    location: LocalizedContent;
     about: LocalizedContent;
   };
   contact: ContactInfo;
   experience: Experience[];
   education: Education[];
   technologies: Technology[];
+  languages: LocalizedContent;
+  interests: LocalizedContent;
   hobbies: Hobby[];
 }

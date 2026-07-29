@@ -1,0 +1,9 @@
+#!/bin/sh
+
+changed_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+if printf '%s\n' "$changed_files" | grep -Eq \
+  '^(features/resume/|shared/i18n/|shared/types/(language|portfolio)\.ts$|app/globals\.css$|public/resumes/|scripts/generate-resume-pdfs\.cjs$|package(-lock)?\.json$)'; then
+  npm run generate:resumes
+  git add public/resumes/*.pdf
+fi

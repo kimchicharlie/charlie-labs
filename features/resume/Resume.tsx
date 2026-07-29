@@ -67,7 +67,10 @@ const Resume = (): React.JSX.Element => {
 
           <div className="p-4 sm:p-6 print:p-4">
             <AboutSection title={t("section.about")} language={language} />
-            <TechnologiesSection title={t("section.technologies")} t={t} />
+            <TechnologiesSection
+              title={t("section.technologies")}
+              language={language}
+            />
             <ExperienceSection
               title={t("section.experience")}
               technologiesLabel={t("common.technologies")}
@@ -77,7 +80,11 @@ const Resume = (): React.JSX.Element => {
               title={t("section.education")}
               language={language}
             />
-            <HobbiesSection title={t("section.hobbies")} language={language} />
+            <HobbiesSection
+              title={t("section.hobbies")}
+              languagesTitle={t("section.languages")}
+              language={language}
+            />
           </div>
         </motion.div>
       </div>

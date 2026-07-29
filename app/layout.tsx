@@ -10,10 +10,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Charlie Henin",
-  description: "Full stack developer based in Montreal.",
+  description:
+    "Senior full-stack developer building web products with TypeScript, React and Node.js.",
   openGraph: {
-    title: "Charlie Henin",
-    description: "Full stack developer based in Montreal.",
+    title: "Charlie Henin — Senior Full-Stack Developer",
+    description:
+      "Senior full-stack developer building web products with TypeScript, React and Node.js.",
     url: "https://www.charliehenin.com",
   },
 };

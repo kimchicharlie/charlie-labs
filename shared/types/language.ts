@@ -24,6 +24,7 @@ export interface TranslationKeys {
   "section.education": string;
   "section.technologies": string;
   "section.hobbies": string;
+  "section.languages": string;
 
   // Tech categories
   "tech.frontend": string;

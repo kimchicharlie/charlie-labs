@@ -30,6 +30,15 @@ npm run build
 
 Static export goes to `out/`.
 
+## Resume PDFs
+
+```bash
+npm run generate:resumes
+```
+
+This regenerates English and French PDFs in US Letter and A4 formats. The
+pre-commit hook runs the generator and stages the PDFs when resume inputs change.
+
 ## License
 
 MIT

@@ -11,11 +11,12 @@ export const translations: Translations = {
     "header.downloadA4": "A4",
 
     // Sections
-    "section.about": "ABOUT ME",
+    "section.about": "PROFESSIONAL SUMMARY",
     "section.experience": "EXPERIENCE",
     "section.education": "EDUCATION",
     "section.technologies": "TECHNOLOGIES",
-    "section.hobbies": "HOBBIES",
+    "section.hobbies": "INTERESTS",
+    "section.languages": "LANGUAGES",
 
     // Tech categories
     "tech.frontend": "frontend",
@@ -40,11 +41,12 @@ export const translations: Translations = {
     "header.downloadA4": "Format A4",
 
     // Sections
-    "section.about": "À PROPOS",
+    "section.about": "PROFIL PROFESSIONNEL",
     "section.experience": "EXPÉRIENCES",
     "section.education": "FORMATION",
     "section.technologies": "TECHNOLOGIES",
-    "section.hobbies": "PASSIONS",
+    "section.hobbies": "CENTRES D’INTÉRÊT",
+    "section.languages": "LANGUES",
 
     // Tech categories
     "tech.frontend": "frontend",

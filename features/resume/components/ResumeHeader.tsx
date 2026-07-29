@@ -28,12 +28,20 @@ export const ResumeHeader = ({
           {portfolioData.personalInfo.name}
         </motion.h1>
         <motion.p
-          className="text-base sm:text-lg text-gray-300 mb-4"
+          className="text-base sm:text-lg text-gray-300 mb-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {getLocalizedContent(portfolioData.personalInfo.title, language)}
+        </motion.p>
+        <motion.p
+          className="text-sm text-gray-400 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+        >
+          {getLocalizedContent(portfolioData.personalInfo.location, language)}
         </motion.p>
 
         <motion.div
@@ -63,7 +71,7 @@ export const ResumeHeader = ({
             target="_blank"
             rel="noopener noreferrer"
             variants={fadeInUp}
-            className="hidden print:flex items-center space-x-2 hover:text-primary-300 transition-colors"
+            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
           >
             <Globe className="h-4 w-4 resume-icon" />
             <span>{portfolioData.contact.website}</span>
