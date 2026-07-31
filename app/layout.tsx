@@ -27,10 +27,12 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps): React.JSX.Element => {
   return (
     <html lang={Language.EN} className="scroll-smooth">
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+      <body
+        className={`${inter.className} flex min-h-screen flex-col bg-white text-gray-900 antialiased print:block`}
+      >
         <LanguageProvider>
           <Navigation />
-          <main className="min-h-screen">{children}</main>
+          <main className="flex flex-1 flex-col print:block">{children}</main>
         </LanguageProvider>
       </body>
     </html>

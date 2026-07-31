@@ -10,6 +10,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:all": "eslint . --ext .js,.jsx,.ts,.tsx,.cjs,.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:pitch": "tsx --test features/pitch-game/audio/notes.test.ts features/pitch-game/audio/scoring.test.ts features/pitch-game/gameState.test.ts",
+    "check": "npm run lint:all && npm run typecheck && npm run test:pitch",
     "export": "next build"
   },
   "dependencies": {
@@ -27,11 +31,15 @@
   },
   "devDependencies": {
     "@types/node": "24.3.0",
-    "@types/react": "19.1.12",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "dejavu-fonts-ttf": "^2.37.3",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.32",
     "husky": "^9.1.7",
     "pdf-lib": "^1.17.1",
-    "pdfkit": "^0.19.1"
+    "pdfkit": "^0.19.1",
+    "tsx": "^4.23.1"
   },
   "keywords": [
     "portfolio",

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { FileText, Home, Menu, X } from "lucide-react";
+import { FileText, Home, Menu, Music2, X } from "lucide-react";
 import { useLanguage } from "@/shared/i18n";
 import LanguageToggle from "@/shared/ui/LanguageToggle";
 
@@ -19,6 +19,12 @@ const Navigation = (): React.JSX.Element => {
       label: t("nav.resume"),
       icon: FileText,
       isActive: pathname === "/",
+    },
+    {
+      href: "/pitch-game/",
+      label: t("nav.pitchGame"),
+      icon: Music2,
+      isActive: pathname === "/pitch-game" || pathname === "/pitch-game/",
     },
   ];
 

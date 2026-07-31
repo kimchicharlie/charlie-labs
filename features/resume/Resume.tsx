@@ -63,7 +63,10 @@ const Resume = (): React.JSX.Element => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <ResumeHeader language={language} />
+          <ResumeHeader
+            language={language}
+            pitchGameLabel={t("header.pitchGameCta")}
+          />
 
           <div className="p-4 sm:p-6 print:p-4">
             <AboutSection title={t("section.about")} language={language} />

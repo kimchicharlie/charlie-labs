@@ -4,11 +4,13 @@ export const translations: Translations = {
   en: {
     // Navigation
     "nav.resume": "Resume",
+    "nav.pitchGame": "Pitch game",
 
     // Header
     "header.resume": "Resume",
     "header.downloadUS": "US Letter",
     "header.downloadA4": "A4",
+    "header.pitchGameCta": "Try the pitch-matching game",
 
     // Sections
     "section.about": "PROFESSIONAL SUMMARY",
@@ -34,11 +36,13 @@ export const translations: Translations = {
   fr: {
     // Navigation
     "nav.resume": "CV",
+    "nav.pitchGame": "Jeu de justesse",
 
     // Header
     "header.resume": "CV",
     "header.downloadUS": "Format US",
     "header.downloadA4": "Format A4",
+    "header.pitchGameCta": "Essayer le jeu de justesse",
 
     // Sections
     "section.about": "PROFIL PROFESSIONNEL",

@@ -12,11 +12,13 @@ export interface LanguageContextType {
 export interface TranslationKeys {
   // Navigation
   "nav.resume": string;
+  "nav.pitchGame": string;
 
   // Header
   "header.resume": string;
   "header.downloadUS": string;
   "header.downloadA4": string;
+  "header.pitchGameCta": string;
 
   // Sections
   "section.about": string;

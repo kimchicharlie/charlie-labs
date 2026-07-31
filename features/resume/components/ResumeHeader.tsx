@@ -1,6 +1,7 @@
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, Mail, Globe, Linkedin, Github } from "lucide-react";
+import { Phone, Mail, Globe, Linkedin, Github, Music2 } from "lucide-react";
 import { getLocalizedContent } from "@/shared/i18n";
 import { Language } from "@/shared/types/language";
 import { portfolioData } from "@/features/resume/data";
@@ -8,10 +9,12 @@ import { fadeInUp, staggerChildren } from "@/features/resume/constants";
 
 type ResumeHeaderProps = {
   language: Language;
+  pitchGameLabel: string;
 };
 
 export const ResumeHeader = ({
   language,
+  pitchGameLabel,
 }: ResumeHeaderProps): React.JSX.Element => {
   return (
     <motion.div
@@ -96,6 +99,21 @@ export const ResumeHeader = ({
             <Github className="h-4 w-4 resume-icon" />
             <span>{portfolioData.contact.github}</span>
           </motion.a>
+        </motion.div>
+
+        <motion.div
+          className="mt-5 no-print"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.65 }}
+        >
+          <Link
+            href="/pitch-game/"
+            className="inline-flex items-center gap-2 rounded-full border border-primary-300/30 bg-primary-400/10 px-4 py-2 text-sm font-medium text-primary-200 transition hover:border-primary-300/60 hover:bg-primary-400/20 hover:text-white"
+          >
+            <Music2 className="h-4 w-4" />
+            {pitchGameLabel}
+          </Link>
         </motion.div>
       </div>
     </motion.div>
