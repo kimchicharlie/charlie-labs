@@ -40,14 +40,18 @@ export const portfolioData: PortfolioData = {
       },
       description: {
         en: [
-          "Built a real-time karaoke scoring system for smart TVs and in-car displays using AudioWorklet, WebAssembly, Service Workers and Lightning.js on resource-constrained devices.",
-          "Delivered three Stingray karaoke applications for the Samsung VXT platform in partnership with Samsung.",
-          "Developed and maintain music-streaming features across smart-TV and automotive platforms using React, TypeScript and Node.js.",
+          "Leverage performance-oriented web technologies to build and deploy a CPU-intensive karaoke scoring game, now in production on Samsung Smart TVs and resource-constrained embedded platforms.",
+          "Develop and maintain features for Stingray's music streaming platform using modern web technologies.",
+          "Collaborate with Samsung to design and develop three PIRS applications for the Samsung VXT platform.",
+          "Design, build, and deploy web applications and RESTful microservices across multiple technology stacks.",
+          "Mentor junior developers and lead technical interviews for software engineering intern candidates, contributing to team growth and hiring decisions.",
         ],
         fr: [
-          "Conçu un système de notation de karaoké en temps réel pour téléviseurs intelligents et écrans embarqués avec AudioWorklet, WebAssembly, Service Workers et Lightning.js, optimisé pour des appareils aux ressources matérielles limitées.",
-          "Livré trois applications de karaoké Stingray pour la plateforme Samsung VXT en partenariat avec Samsung.",
-          "Développé et maintenu des fonctionnalités de streaming musical pour téléviseurs intelligents et systèmes embarqués automobiles avec React, TypeScript et Node.js.",
+          "Exploiter des technologies web haute performance pour concevoir et déployer un jeu de karaoké avec système de notation exigeant en ressources processeur, maintenant en production sur les téléviseurs connectés Samsung et des plateformes embarquées aux ressources limitées.",
+          "Concevoir et maintenir des fonctionnalités pour la plateforme de diffusion musicale en continu de Stingray à l'aide de technologies web modernes.",
+          "Collaborer avec Samsung à la conception et au développement de trois applications PIRS destinées à la plateforme Samsung VXT.",
+          "Concevoir, développer et déployer des applications web et des microservices RESTful dans plusieurs écosystèmes technologiques.",
+          "Encadrer des développeurs juniors et diriger les entretiens techniques de candidats à des stages en génie logiciel, contribuant à la croissance de l'équipe et aux décisions d'embauche.",
         ],
       },
       technologies: [
