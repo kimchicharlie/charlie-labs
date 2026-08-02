@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, Mail, Globe, Linkedin, Github, Music2 } from "lucide-react";
+import { Mail, Globe, Linkedin, Github, Music2 } from "lucide-react";
 import { getLocalizedContent } from "@/shared/i18n";
 import { Language } from "@/shared/types/language";
 import { portfolioData } from "@/features/resume/data";
@@ -53,14 +53,6 @@ export const ResumeHeader = ({
           initial="initial"
           animate="animate"
         >
-          <motion.a
-            href={`tel:${portfolioData.contact.phone}`}
-            variants={fadeInUp}
-            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
-          >
-            <Phone className="h-4 w-4 resume-icon" />
-            <span>{portfolioData.contact.phone}</span>
-          </motion.a>
           <motion.a
             href={`mailto:${portfolioData.contact.email}`}
             variants={fadeInUp}

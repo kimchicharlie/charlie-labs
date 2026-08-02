@@ -206,7 +206,6 @@ function header(doc, language) {
     .text("Montreal, QC, Canada", 38, 61, { width: 536, align: "center" });
 
   const links = [
-    [data.contact.phone, `tel:${data.contact.phone}`],
     [data.contact.email, `mailto:${data.contact.email}`],
     [data.contact.website, `https://${data.contact.website}`],
     [
