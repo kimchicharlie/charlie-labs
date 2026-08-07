@@ -18,7 +18,6 @@ export interface TranslationKeys {
   "header.resume": string;
   "header.downloadUS": string;
   "header.downloadA4": string;
-  "header.pitchGameCta": string;
 
   // Sections
   "section.about": string;
