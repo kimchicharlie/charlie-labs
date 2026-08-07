@@ -15,7 +15,6 @@ type FinalResultProps = {
   score: number;
   highScore: number;
   isNewHighScore: boolean;
-  reduceMotion: boolean;
   onPlayAgain: () => void;
   onChangeSettings: () => void;
 };
@@ -27,26 +26,23 @@ const FinalResult = ({
   score,
   highScore,
   isNewHighScore,
-  reduceMotion,
   onPlayAgain,
   onChangeSettings,
 }: FinalResultProps): React.JSX.Element => (
   <motion.div
-    initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
-    animate={{ opacity: 1, scale: 1 }}
-    className="rounded-2xl border border-white/10 bg-white/[0.06] px-6 py-10 text-center"
+    className="rounded-2xl border border-white/10 bg-white/[0.045] px-6 py-10 text-center"
   >
     {isNewHighScore ? (
       <Trophy className="mx-auto mb-4 h-10 w-10 text-amber-300" />
     ) : (
       <Gauge className="mx-auto mb-4 h-10 w-10 text-primary-300" />
     )}
-    <p className="text-sm font-semibold uppercase tracking-widest text-gray-400">
+    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gray-400">
       {isNewHighScore ? copy.newPersonalBest : copy.finalScore}
     </p>
-    <p className="mt-2 text-6xl font-bold">
+    <p className="mt-2 text-6xl font-bold text-white">
       {score}
-      <span className="text-2xl text-gray-500">
+      <span className="font-sans text-2xl text-gray-500">
         {" "}/ {maxScoreForMode(mode)}
       </span>
     </p>
@@ -64,7 +60,7 @@ const FinalResult = ({
       <button
         type="button"
         onClick={onPlayAgain}
-        className="inline-flex items-center gap-2 rounded-xl bg-primary-500 px-5 py-3 font-semibold text-white transition hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+        className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-5 py-3 font-semibold text-white transition-colors hover:bg-primary-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300"
       >
         <RefreshCw className="h-5 w-5" />
         {copy.playAgain}
@@ -72,7 +68,7 @@ const FinalResult = ({
       <button
         type="button"
         onClick={onChangeSettings}
-        className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-semibold text-gray-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary-300"
+        className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-5 py-3 font-semibold text-gray-200 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300"
       >
         <House className="h-5 w-5" />
         {copy.home}

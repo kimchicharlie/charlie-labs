@@ -68,12 +68,12 @@ const ActiveExercise = ({
       />
 
       {state.phase === "reference" && (
-        <div className="mt-4 flex min-h-32 flex-col items-center justify-center rounded-2xl border border-white/10 bg-primary-400/10 px-5 py-6 text-primary-100">
-          <Volume2 className="mb-2 h-8 w-8 animate-pulse text-primary-200 motion-reduce:animate-none" />
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary-300">
+        <div className="mt-4 flex min-h-36 flex-col items-center justify-center rounded-2xl border border-primary-300/20 bg-primary-400/10 px-5 py-6 text-primary-100">
+          <Volume2 className="mb-3 h-8 w-8 animate-pulse text-primary-200 motion-reduce:animate-none" />
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary-300">
             {copy.listen}
           </span>
-          <span className="mt-2 text-xl font-bold">
+          <span className="mt-2 text-xl font-bold text-white">
             {state.mode === "single"
               ? copy.hearTarget
               : copy.rememberNotes(state.targetSequence.length)}
@@ -82,29 +82,29 @@ const ActiveExercise = ({
       )}
 
       {state.phase === "preparing" && (
-        <div className="mt-4 flex min-h-44 flex-col items-center justify-center rounded-2xl border border-white/10 bg-amber-400/10 px-5 py-6 text-center">
+        <div className="mt-4 flex min-h-44 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-6 text-center">
           {state.mode === "melody" ? (
             <motion.span
               initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-4xl font-black text-amber-100"
+              className="text-4xl font-bold text-white"
             >
               {copy.yourTurn}
             </motion.span>
           ) : (
             <>
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber-300">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary-300">
                 {copy.yourTurnIn}
               </span>
               <motion.span
                 key={state.countdown}
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.65 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="mt-2 text-7xl font-black text-amber-100"
+                className="mt-2 text-7xl font-bold text-white"
               >
                 {state.countdown}
               </motion.span>
-              <span className="mt-2 text-sm text-amber-100/70">
+              <span className="mt-2 text-sm text-[#f4f1e8]/60">
                 {copy.getReady}
               </span>
             </>

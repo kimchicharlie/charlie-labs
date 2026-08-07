@@ -2,30 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background: #f7f6f2;
+  --surface: #ffffff;
+  --foreground: #1b1d21;
+  --muted: #656970;
+  --border: #e4e2dc;
+  --accent: #285b91;
+  --accent-dark: #1f4772;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 10, 10, 10;
-    --background-end-rgb: 10, 10, 10;
-  }
+html {
+  background: var(--background);
+  scroll-padding-top: 5rem;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+::selection {
+  color: var(--foreground);
+  background: #dce8f3;
 }
 
 @layer utilities {
@@ -34,22 +33,41 @@ body {
   }
 }
 
-/* Custom scrollbar styles */
+.site-canvas {
+  background: var(--background);
+}
+
+.site-canvas::before {
+  content: none;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  border: 2px solid var(--background);
+  border-radius: 999px;
+  background: #b9bbc0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: #92959b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Print styles for PDF generation */
@@ -71,7 +89,15 @@ body {
   body {
     background: white !important;
     color: black !important;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    font-family: "Inter", system-ui, sans-serif !important;
+  }
+
+  .site-canvas {
+    background: white !important;
+  }
+
+  .site-canvas::before {
+    display: none !important;
   }
   
   .no-print {
@@ -182,23 +208,6 @@ body {
   }
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .max-w-6xl {
-    max-width: none !important;
-  }
-  
-  #resume-content {
-    margin: 0 !important;
-    border-radius: 0 !important;
-  }
-  
-  .min-h-screen {
-    padding: 0 !important;
-  }
-}
-
-/* PDF-specific page break controls */
 .page-break-before {
   page-break-before: always;
   break-before: page;
@@ -214,7 +223,6 @@ body {
   break-inside: avoid;
 }
 
-/* PDF-specific fixes for better rendering */
 @media print {
   .resume-icon {
     display: inline-block !important;

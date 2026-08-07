@@ -96,29 +96,24 @@ const PitchGame = (): React.JSX.Element => {
     state.phase === "round-result";
 
   return (
-    <section className="mx-auto w-full max-w-3xl">
+    <section className="mx-auto w-full max-w-5xl">
       <p className="sr-only" aria-live="assertive" aria-atomic="true">
         {announcementText}
       </p>
 
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-gray-900 text-white shadow-2xl shadow-primary-900/20">
-        <div className="relative px-6 py-7 sm:px-10 sm:py-9">
-          <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl" />
-          <div className="absolute -bottom-28 -left-16 h-64 w-64 rounded-full bg-accent-500/10 blur-3xl" />
-          <div className="relative">
-            <div className="mb-7 flex items-center justify-between gap-4">
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary-300">
-                  {copy.learnToSing}
-                </p>
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  {copy.title}
-                </h1>
-              </div>
-              <div className="hidden h-14 w-14 items-center justify-center rounded-2xl bg-white/10 sm:flex">
-                <Music2 className="h-7 w-7 text-primary-300" />
-              </div>
+      <div className="overflow-hidden rounded-3xl bg-[#14283f] text-white shadow-[0_22px_60px_rgba(20,40,63,0.16)]">
+        <div className="px-5 py-7 sm:px-8 sm:py-9 lg:px-10">
+          <header className="mb-7 flex items-start justify-between gap-4 border-b border-white/10 pb-7">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-300">{copy.learnToSing}</p>
+              <h1 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
+                {copy.title}
+              </h1>
             </div>
+            <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/[0.07] sm:flex">
+              <Music2 className="h-6 w-6 text-primary-300" />
+            </div>
+          </header>
 
             {(state.phase === "idle" || state.phase === "error") && (
               <SetupScreen
@@ -132,7 +127,6 @@ const PitchGame = (): React.JSX.Element => {
                   highScores[getScoreKey("melody", state.difficulty)]
                 }
                 errorMessage={state.errorMessage}
-                reduceMotion={reduceMotion}
                 onModeChange={(mode) =>
                   dispatch({ type: "select-mode", mode })
                 }
@@ -144,7 +138,7 @@ const PitchGame = (): React.JSX.Element => {
             )}
 
             {state.phase === "starting" && (
-              <div className="flex min-h-56 flex-col items-center justify-center text-center">
+              <div className="flex min-h-64 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-center">
                 <LoaderCircle className="mb-4 h-9 w-9 animate-spin text-primary-300 motion-reduce:animate-none" />
                 <p className="font-semibold">{copy.preparingMicrophone}</p>
                 <p className="mt-2 text-sm text-gray-400">
@@ -178,16 +172,14 @@ const PitchGame = (): React.JSX.Element => {
                 score={state.score}
                 highScore={currentHighScore}
                 isNewHighScore={state.isNewHighScore}
-                reduceMotion={reduceMotion}
                 onPlayAgain={() => void startGame()}
                 onChangeSettings={returnHome}
               />
             )}
-          </div>
         </div>
       </div>
 
-      <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-2 text-center text-xs text-gray-500">
+      <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-2 text-center text-xs text-[#777b82]">
         <span>{copy.yinDetection}</span>
         <span>{copy.octaveIndependent}</span>
         <span>{copy.noRecording}</span>

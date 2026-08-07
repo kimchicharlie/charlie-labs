@@ -33,6 +33,10 @@ export const LanguageProvider = ({
     }
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const value = useMemo<LanguageContextType>(() => {
     const t = (key: string): string => {
       const translatedValue =

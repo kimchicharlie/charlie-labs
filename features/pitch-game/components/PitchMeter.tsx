@@ -29,7 +29,7 @@ const PitchMeter = ({
         <div className="absolute left-[37.5%] top-0 h-full w-1/4 bg-emerald-300/80" />
         <div className="absolute left-1/2 top-[-4px] h-5 w-px bg-white/70" />
         <motion.div
-          className="absolute top-1/2 h-6 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-gray-900 shadow-lg"
+          className="absolute top-1/2 h-7 w-2 -translate-x-1/2 -translate-y-1/2 border-2 border-white bg-[#171717]"
           initial={false}
           animate={{
             left: `${position}%`,

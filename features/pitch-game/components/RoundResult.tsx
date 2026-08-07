@@ -45,17 +45,17 @@ const RoundResult = ({
   }
 
   return (
-    <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-5">
+    <div className="mt-4 rounded-2xl border border-white/10 bg-black/15 p-5 sm:p-6">
       <div className="flex flex-col items-center justify-center text-center">
         {completed ? (
-          <CheckCircle2 className="mb-2 h-8 w-8 text-emerald-300" />
+          <CheckCircle2 className="mb-3 h-8 w-8 text-emerald-300" />
         ) : (
-          <Clock3 className="mb-2 h-8 w-8 text-amber-300" />
+          <Clock3 className="mb-3 h-8 w-8 text-amber-300" />
         )}
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
+        <span className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
           {completed ? copy.review : copy.timeUp}
         </span>
-        <span className="mt-2 text-2xl font-bold">
+        <span className="mt-2 text-2xl font-bold text-white">
           {copy.scorePoints(roundScore)}
         </span>
       </div>
@@ -98,7 +98,7 @@ const RoundResult = ({
         <button
           type="button"
           onClick={onContinue}
-          className="rounded-xl bg-primary-500 px-5 py-2.5 font-semibold text-white transition hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300"
+          className="rounded-lg bg-primary-500 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-primary-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300"
         >
           {continueLabel}
         </button>

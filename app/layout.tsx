@@ -4,6 +4,7 @@ import React from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/shared/i18n";
 import Navigation from "@/shared/ui/Navigation";
+import Footer from "@/shared/ui/Footer";
 import { Language } from "@/shared/types/language";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,11 +29,12 @@ const RootLayout = ({ children }: RootLayoutProps): React.JSX.Element => {
   return (
     <html lang={Language.EN} className="scroll-smooth">
       <body
-        className={`${inter.className} flex min-h-screen flex-col bg-white text-gray-900 antialiased print:block`}
+        className={`${inter.className} flex min-h-screen flex-col bg-[#f7f6f2] text-[#1b1d21] antialiased print:block`}
       >
         <LanguageProvider>
           <Navigation />
           <main className="flex flex-1 flex-col print:block">{children}</main>
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

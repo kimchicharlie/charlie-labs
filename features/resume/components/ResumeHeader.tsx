@@ -1,93 +1,47 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Mail, Globe, Linkedin, Github } from "lucide-react";
+import { Github, Globe, Linkedin, Mail, MapPin } from "lucide-react";
 import { getLocalizedContent } from "@/shared/i18n";
 import { Language } from "@/shared/types/language";
 import { portfolioData } from "@/features/resume/data";
-import { fadeInUp, staggerChildren } from "@/features/resume/constants";
 
 type ResumeHeaderProps = {
   language: Language;
 };
 
-export const ResumeHeader = ({ language }: ResumeHeaderProps): React.JSX.Element => {
-  return (
-    <motion.div
-      className="bg-gradient-to-r from-gray-900 to-gray-800 text-white p-4 sm:p-6 print:bg-gray-900"
-      {...fadeInUp}
-    >
-      <div className="text-center">
-        <motion.h1
-          className="text-2xl sm:text-3xl font-bold mb-1 tracking-wide"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
+export const ResumeHeader = ({ language }: ResumeHeaderProps): React.JSX.Element => (
+  <header className="border-b border-[#e4e2dc] px-6 py-8 sm:px-9 sm:py-10 lg:px-11 print:bg-gray-900 print:p-4 print:text-white">
+    <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+      <div>
+        <h2 className="text-3xl font-semibold tracking-[-0.035em] text-[#1b1d21] sm:text-4xl print:text-xl print:text-white">
           {portfolioData.personalInfo.name}
-        </motion.h1>
-        <motion.p
-          className="text-base sm:text-lg text-gray-300 mb-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+        </h2>
+        <p className="mt-2 text-base font-medium text-primary-700 print:text-base print:text-white">
           {getLocalizedContent(portfolioData.personalInfo.title, language)}
-        </motion.p>
-        <motion.p
-          className="text-sm text-gray-400 mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-        >
+        </p>
+        <p className="mt-3 flex items-center gap-2 text-sm text-[#777b82] print:mt-1 print:text-xs print:text-white">
+          <MapPin className="h-4 w-4 resume-icon" />
           {getLocalizedContent(portfolioData.personalInfo.location, language)}
-        </motion.p>
-
-        <motion.div
-          className="flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm"
-          variants={staggerChildren}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.a
-            href={`mailto:${portfolioData.contact.email}`}
-            variants={fadeInUp}
-            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
-          >
-            <Mail className="h-4 w-4 resume-icon" />
-            <span>{portfolioData.contact.email}</span>
-          </motion.a>
-          <motion.a
-            href={`https://${portfolioData.contact.website}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={fadeInUp}
-            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
-          >
-            <Globe className="h-4 w-4 resume-icon" />
-            <span>{portfolioData.contact.website}</span>
-          </motion.a>
-          <motion.a
-            href={`https://www.linkedin.com/in/${portfolioData.contact.linkedin}/`}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={fadeInUp}
-            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
-          >
-            <Linkedin className="h-4 w-4 resume-icon" />
-            <span>{portfolioData.contact.linkedin}</span>
-          </motion.a>
-          <motion.a
-            href={`https://github.com/${portfolioData.contact.github}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={fadeInUp}
-            className="flex items-center space-x-2 hover:text-primary-300 transition-colors"
-          >
-            <Github className="h-4 w-4 resume-icon" />
-            <span>{portfolioData.contact.github}</span>
-          </motion.a>
-        </motion.div>
+        </p>
       </div>
-    </motion.div>
-  );
-};
+
+      <div className="grid gap-2 text-sm sm:grid-cols-2 md:text-right print:grid-cols-4 print:text-xs">
+        <a className="inline-flex items-center gap-2 text-[#565a61] transition-colors hover:text-primary-700 md:justify-end print:text-white" href={`mailto:${portfolioData.contact.email}`}>
+          <Mail className="h-4 w-4 resume-icon" />
+          {portfolioData.contact.email}
+        </a>
+        <a className="inline-flex items-center gap-2 text-[#565a61] transition-colors hover:text-primary-700 md:justify-end print:text-white" href={`https://${portfolioData.contact.website}`} target="_blank" rel="noopener noreferrer">
+          <Globe className="h-4 w-4 resume-icon" />
+          {portfolioData.contact.website}
+        </a>
+        <a className="inline-flex items-center gap-2 text-[#565a61] transition-colors hover:text-primary-700 md:justify-end print:text-white" href={`https://www.linkedin.com/in/${portfolioData.contact.linkedin}/`} target="_blank" rel="noopener noreferrer">
+          <Linkedin className="h-4 w-4 resume-icon" />
+          {portfolioData.contact.linkedin}
+        </a>
+        <a className="inline-flex items-center gap-2 text-[#565a61] transition-colors hover:text-primary-700 md:justify-end print:text-white" href={`https://github.com/${portfolioData.contact.github}`} target="_blank" rel="noopener noreferrer">
+          <Github className="h-4 w-4 resume-icon" />
+          {portfolioData.contact.github}
+        </a>
+      </div>
+    </div>
+  </header>
+);

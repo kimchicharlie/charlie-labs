@@ -1,10 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { MapPin, Calendar } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 import { getLocalizedArray, getLocalizedContent } from "@/shared/i18n";
 import { Language } from "@/shared/types/language";
 import { portfolioData } from "@/features/resume/data";
-import { fadeInUp, staggerChildren } from "@/features/resume/constants";
 
 type ExperienceSectionProps = {
   title: string;
@@ -12,92 +10,53 @@ type ExperienceSectionProps = {
   language: Language;
 };
 
-export const ExperienceSection = ({
-  title,
-  technologiesLabel,
-  language,
-}: ExperienceSectionProps): React.JSX.Element => {
-  return (
-    <section className="mb-4 sm:mb-6 print:mb-3 avoid-page-break">
-      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 border-b-2 border-primary-500 pb-1 print:text-base print:mb-2">
-        {title}
-      </h2>
-      <motion.div
-        className="space-y-3 sm:space-y-4 print:space-y-2"
-        variants={staggerChildren}
-        initial="initial"
-        animate="animate"
-      >
-        {portfolioData.experience.map((experience) => (
-          <motion.div
-            key={`${experience.company}-${experience.period.en}`}
-            variants={fadeInUp}
-            className="border-l-4 border-primary-500 pl-4 pb-3 sm:pb-4 relative print:pb-2 print:pl-3 avoid-page-break"
-          >
-            <div className="absolute -left-2 top-0 w-3 h-3 bg-primary-500 rounded-full print:w-2 print:h-2 print:-left-1" />
-            <div className="mb-1">
-              <h3 className="text-sm sm:text-base font-semibold text-gray-900 print:text-xs">
-                {getLocalizedContent(experience.title, language)}
-              </h3>
-              <p className="text-primary-600 font-medium text-xs sm:text-sm print:text-xs">
-                {experience.company}
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 text-xs text-gray-600 mt-1 print:text-xs location-date-container">
-                <div className="flex items-center space-x-1 location-date-item">
-                  <MapPin className="h-3 w-3 resume-icon" />
-                  <span>
-                    {getLocalizedContent(experience.location, language)}
-                  </span>
-                </div>
-                <div className="flex items-center space-x-1 location-date-item">
-                  <Calendar className="h-3 w-3 resume-icon" />
-                  <span>
-                    {getLocalizedContent(experience.period, language)}
-                  </span>
-                </div>
-              </div>
-            </div>
+export const ExperienceSection = ({ title, technologiesLabel, language }: ExperienceSectionProps): React.JSX.Element => (
+  <section className="mb-10 border-t border-[#e4e2dc] pt-9 print:mb-3 print:pt-2 avoid-page-break">
+    <h2 className="text-xl font-semibold tracking-[-0.02em] text-[#1b1d21] print:text-base">{title}</h2>
+    <div className="mt-6 divide-y divide-[#e4e2dc] print:mt-1 print:space-y-2 print:divide-y-0">
+      {portfolioData.experience.map((experience) => (
+        <article key={`${experience.company}-${experience.period.en}`} className="grid gap-4 py-7 first:pt-0 sm:grid-cols-[11rem_1fr] sm:gap-8 print:block print:py-0 print:pb-2 avoid-page-break">
+          <div className="space-y-2 text-xs text-[#777b82] print:text-xs">
+            <p className="flex items-center gap-1.5 location-date-item">
+              <Calendar className="h-3.5 w-3.5 resume-icon" />
+              {getLocalizedContent(experience.period, language)}
+            </p>
+            <p className="flex items-center gap-1.5 location-date-item">
+              <MapPin className="h-3.5 w-3.5 resume-icon" />
+              {getLocalizedContent(experience.location, language)}
+            </p>
+          </div>
 
-            {getLocalizedArray(experience.description, language).length > 0 && (
-              <ul className="text-gray-700 space-y-0.5 print:text-xs print:space-y-0">
-                {getLocalizedArray(experience.description, language).map(
-                  (description) => (
-                    <li
-                      key={`${experience.company}-${description}`}
-                      className="flex"
-                    >
-                      <span className="text-primary-500 mr-2 mt-0.5 print:mt-0 text-xs">
-                        •
-                      </span>
-                      <span className="text-xs sm:text-sm print:text-xs flex-1">
-                        {description}
-                      </span>
-                    </li>
-                  ),
-                )}
-              </ul>
-            )}
+          <div>
+            <h3 className="text-base font-semibold text-[#1b1d21] print:text-xs">
+              {getLocalizedContent(experience.title, language)}
+            </h3>
+            <p className="mt-1 text-sm font-medium text-primary-700 print:mt-0 print:text-xs">{experience.company}</p>
+
+            <ul className="mt-3 space-y-1.5 print:mt-1 print:space-y-0">
+              {getLocalizedArray(experience.description, language).map((description) => (
+                <li key={`${experience.company}-${description}`} className="flex gap-2 text-sm leading-6 text-[#565a61] print:text-xs">
+                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-[#9ba0a6] print:mt-1.5" />
+                  <span>{description}</span>
+                </li>
+              ))}
+            </ul>
 
             {experience.technologies.length > 0 && (
-              <div className="mt-2 print:mt-1">
-                <p className="text-xs text-gray-600 mb-1 print:mb-0.5">
-                  {technologiesLabel}
-                </p>
-                <div className="flex flex-wrap gap-1 print:gap-0.5">
+              <div className="mt-4 print:mt-1">
+                <p className="text-xs text-[#858990] print:text-xs">{technologiesLabel}</p>
+                <div className="mt-2 flex flex-wrap gap-1.5 print:mt-0 print:gap-0.5">
                   {experience.technologies.map((technology) => (
-                    <span
-                      key={`${experience.company}-${technology}`}
-                      className="px-1.5 py-0.5 bg-gray-100 text-gray-700 rounded text-xs print:px-1 print:py-0 print:text-xs"
-                    >
+                    <span key={`${experience.company}-${technology}`} className="rounded-md bg-[#f2f3f4] px-2 py-1 font-mono text-[10px] text-[#565a61] print:bg-white print:px-1 print:py-0 print:text-xs">
                       {technology}
                     </span>
                   ))}
                 </div>
               </div>
             )}
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-};
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+);

@@ -15,7 +15,6 @@ type SetupScreenProps = {
   oneNoteBest: number;
   melodyBest: number;
   errorMessage: string;
-  reduceMotion: boolean;
   onModeChange: (mode: GameMode) => void;
   onDifficultyChange: (difficulty: GameDifficulty) => void;
   onPlay: () => void;
@@ -38,29 +37,26 @@ const SetupScreen = ({
   oneNoteBest,
   melodyBest,
   errorMessage,
-  reduceMotion,
   onModeChange,
   onDifficultyChange,
   onPlay,
 }: SetupScreenProps): React.JSX.Element => (
   <motion.div
-    initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8"
+    className="rounded-2xl border border-white/10 bg-white/[0.045] p-5 sm:p-7"
   >
-    <p className="text-base leading-7 text-gray-300">{copy.introduction}</p>
+    <p className="max-w-3xl text-base leading-7 text-gray-300">{copy.introduction}</p>
 
-    <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+    <p className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">
       {copy.exercise}
     </p>
     <div className="mt-3 grid gap-3 sm:grid-cols-2">
       <button
         type="button"
         onClick={() => onModeChange("single")}
-        className={`rounded-2xl border p-4 text-left transition focus:outline-none focus:ring-2 focus:ring-primary-300 ${
+        className={`rounded-xl border p-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 sm:p-5 ${
           mode === "single"
-            ? "border-primary-400 bg-primary-400/15"
-            : "border-white/10 bg-black/10 hover:border-white/25"
+            ? "border-primary-400 bg-primary-500/15 text-white"
+            : "border-white/10 bg-black/10 text-white hover:border-white/25"
         }`}
         aria-pressed={mode === "single"}
       >
@@ -78,10 +74,10 @@ const SetupScreen = ({
       <button
         type="button"
         onClick={() => onModeChange("melody")}
-        className={`rounded-2xl border p-4 text-left transition focus:outline-none focus:ring-2 focus:ring-primary-300 ${
+        className={`rounded-xl border p-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 sm:p-5 ${
           mode === "melody"
-            ? "border-primary-400 bg-primary-400/15"
-            : "border-white/10 bg-black/10 hover:border-white/25"
+            ? "border-primary-400 bg-primary-500/15 text-white"
+            : "border-white/10 bg-black/10 text-white hover:border-white/25"
         }`}
         aria-pressed={mode === "melody"}
       >
@@ -97,18 +93,18 @@ const SetupScreen = ({
       </button>
     </div>
 
-    <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+    <p className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">
       {copy.difficulty}
     </p>
-    <div className="mt-3 grid grid-cols-2 gap-2 rounded-2xl bg-black/20 p-1.5">
+    <div className="mt-3 grid grid-cols-2 gap-1 rounded-xl bg-black/15 p-1.5">
       {(["easy", "hard"] as const).map((option) => (
         <button
           key={option}
           type="button"
           onClick={() => onDifficultyChange(option)}
-          className={`rounded-xl px-4 py-3 text-left transition focus:outline-none focus:ring-2 focus:ring-primary-300 ${
+          className={`rounded-lg px-4 py-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 ${
             difficulty === option
-              ? "bg-white/10 text-white shadow-sm"
+              ? "bg-white/10 text-white"
               : "text-gray-400 hover:bg-white/[0.05] hover:text-white"
           }`}
           aria-pressed={difficulty === option}
@@ -135,12 +131,14 @@ const SetupScreen = ({
     <button
       type="button"
       onClick={onPlay}
-      className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary-500 px-5 py-3 font-semibold text-white transition hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+      className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary-500 px-5 py-3 font-semibold text-white transition-colors hover:bg-primary-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#14283f]"
     >
       <Mic className="h-5 w-5" />
       {copy.play}
     </button>
-    <p className="mt-3 text-xs text-gray-500">{copy.microphoneNotice}</p>
+    <p className="mt-3 text-xs text-gray-500">
+      {copy.microphoneNotice}
+    </p>
   </motion.div>
 );
 

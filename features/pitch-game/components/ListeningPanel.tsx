@@ -47,7 +47,7 @@ const ListeningPanel = ({
   }
 
   return (
-    <div className="mt-4 rounded-2xl border border-white/10 bg-emerald-400/[0.08] p-5 sm:px-7">
+    <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:px-7 sm:py-6">
       <div className="grid min-h-36 gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
         <div className="text-center sm:text-left">
           <div className="flex items-center justify-center gap-3 sm:justify-start">
@@ -55,12 +55,12 @@ const ListeningPanel = ({
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75 motion-reduce:animate-none" />
               <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400" />
             </span>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-300">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">
               {state.mode === "melody" ? copy.yourTurn : copy.singNow}
             </span>
           </div>
           <p className="mt-3 text-2xl font-black text-white">{instruction}</p>
-          <p className="mt-2 text-sm text-emerald-100/70">
+          <p className="mt-2 text-sm text-gray-400">
             {state.mode === "single"
               ? copy.sustainedNote
               : copy.notePosition(
@@ -82,8 +82,8 @@ const ListeningPanel = ({
           }}
           aria-hidden="true"
         >
-          <div className="absolute inset-2 rounded-full bg-gray-900" />
-          <span className="relative text-2xl font-black text-white">
+          <div className="absolute inset-2 rounded-full bg-[#14283f]" />
+          <span className="relative text-xl font-bold text-white">
             {formattedTimeRemaining}
           </span>
         </div>

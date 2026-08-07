@@ -2,59 +2,27 @@ import React from "react";
 import { portfolioData } from "@/features/resume/data";
 import { Language } from "@/shared/types/language";
 
-type TechnologiesSectionProps = {
-  title: string;
-  language: Language;
-};
+type TechnologiesSectionProps = { title: string; language: Language };
 
-export const TechnologiesSection = ({
-  title,
-  language,
-}: TechnologiesSectionProps): React.JSX.Element => {
+export const TechnologiesSection = ({ title, language }: TechnologiesSectionProps): React.JSX.Element => {
   const groups = [
-    {
-      category: "core",
-      title:
-        language === Language.FR
-          ? "TECHNOLOGIES PRINCIPALES"
-          : "CORE TECHNOLOGIES",
-    },
-    {
-      category: "specialized",
-      title:
-        language === Language.FR
-          ? "PLATEFORMES WEB SPÉCIALISÉES"
-          : "SPECIALIZED WEB PLATFORMS",
-    },
+    { category: "core", label: language === Language.FR ? "Principales" : "Core" },
+    { category: "specialized", label: language === Language.FR ? "Plateformes spécialisées" : "Specialized platforms" },
   ] as const;
 
   return (
-    <section className="mb-4 sm:mb-5 print:mb-3">
-      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 border-b-2 border-primary-500 pb-1 print:text-base print:mb-1">
-        {title}
-      </h2>
-      <div className="space-y-1.5 print:space-y-1">
-        {groups.map(({ category, title: groupTitle }) => {
-          const technologies = portfolioData.technologies
-            .filter((technology) => technology.category === category)
-            .map((technology) => technology.name)
-            .join(" · ");
-
-          return (
-            <div
-              key={category}
-              className="sm:flex sm:items-baseline sm:gap-3 print:flex print:items-baseline print:gap-2"
-            >
-              <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide shrink-0 mb-0.5 sm:mb-0 print:mb-0">
-                {groupTitle}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                {technologies}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+    <section className="mb-10 print:mb-3">
+      <h2 className="text-lg font-semibold tracking-[-0.015em] text-[#1b1d21] print:text-base">{title}</h2>
+      <dl className="mt-4 space-y-4 print:mt-1 print:space-y-1">
+        {groups.map(({ category, label }) => (
+          <div key={category}>
+            <dt className="text-xs font-medium uppercase tracking-[0.08em] text-[#858990] print:text-xs">{label}</dt>
+            <dd className="mt-1.5 text-sm leading-6 text-[#4f5359] print:mt-0 print:text-xs">
+              {portfolioData.technologies.filter((technology) => technology.category === category).map((technology) => technology.name).join(" · ")}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 };

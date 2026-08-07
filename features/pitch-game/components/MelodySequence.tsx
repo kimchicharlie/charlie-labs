@@ -16,7 +16,7 @@ const MelodySequence = ({
   state,
   reduceMotion,
 }: MelodySequenceProps): React.JSX.Element => (
-  <div className="mb-4 flex flex-wrap justify-center gap-2 rounded-2xl border border-white/10 bg-black/20 p-4">
+  <div className="mb-4 flex flex-wrap justify-center gap-2 rounded-2xl border border-white/10 bg-black/15 p-4">
     {state.targetSequence.map((note, index) => {
       const result = state.noteResults[index];
       const revealTarget =
@@ -72,7 +72,7 @@ const MelodySequence = ({
         slotContent = <Check className="h-5 w-5" strokeWidth={3} />;
       } else if (isCurrent) {
         slotContent = (
-          <span className="h-3 w-3 rounded-full bg-primary-200 shadow-[0_0_12px_rgba(196,181,253,0.75)]" />
+          <span className="h-3 w-3 rounded-full bg-primary-200 shadow-[0_0_12px_rgba(189,212,231,0.7)]" />
         );
       }
 

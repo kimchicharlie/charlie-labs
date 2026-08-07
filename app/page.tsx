@@ -1,8 +1,8 @@
 import React from "react";
-import Resume from "@/features/resume";
+import Home from "@/features/home";
 
 const HomePage = (): React.JSX.Element => {
-  return <Resume />;
+  return <Home />;
 };
 
 export default HomePage;

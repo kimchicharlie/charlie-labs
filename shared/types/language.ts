@@ -11,8 +11,11 @@ export interface LanguageContextType {
 
 export interface TranslationKeys {
   // Navigation
+  "nav.work": string;
+  "nav.experience": string;
+  "nav.about": string;
   "nav.resume": string;
-  "nav.pitchGame": string;
+  "nav.pitchMatchingGame": string;
 
   // Header
   "header.resume": string;

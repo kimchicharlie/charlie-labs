@@ -3,14 +3,14 @@ import React from "react";
 import PitchGame from "@/features/pitch-game";
 
 export const metadata: Metadata = {
-  title: "Pitch Match — Charlie Henin",
+  title: "Singing Training — Charlie Henin",
   description:
-    "A five-round browser pitch-matching game powered by the Web Audio API.",
+    "Browser-based ear and voice training powered by the Web Audio API.",
 };
 
 const PitchGamePage = (): React.JSX.Element => {
   return (
-    <div className="flex-1 bg-gradient-to-br from-slate-50 via-white to-blue-50 px-4 py-10 sm:px-6 sm:py-16">
+    <div className="site-canvas flex-1 px-3 py-9 sm:px-6 sm:py-14 lg:py-16">
       <PitchGame />
     </div>
   );

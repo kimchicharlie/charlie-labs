@@ -308,7 +308,6 @@ export const portfolioData: PortfolioData = {
     { name: "Service Workers", category: "specialized" },
     { name: "WebAssembly", category: "specialized" },
     { name: "AudioWorklet", category: "specialized" },
-    { name: "Lightning.js", category: "specialized" },
   ],
   languages: {
     en: "French: Native | English: Professional",

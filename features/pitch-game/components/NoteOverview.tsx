@@ -29,7 +29,7 @@ const NoteOverview = ({
     state.phase === "round-result" &&
     state.noteResults[0]
       ? resultColorClasses(state.noteResults[0].pitch.score)
-      : "border-white/10 bg-white/[0.06]";
+      : "border-white/10 bg-white/[0.05]";
 
   let currentSlotDescription = `${copy.of} ${state.targetSequence.length}`;
   if (state.mode === "single") {
@@ -46,7 +46,7 @@ const NoteOverview = ({
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       <div className={`rounded-2xl border p-5 ${singleResultClasses}`}>
-        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400">
           {state.mode === "single" ? copy.targetNote : copy.currentSlot}
         </p>
         <div className="mt-3 flex items-end gap-3">
@@ -61,8 +61,8 @@ const NoteOverview = ({
         </div>
       </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400">
           {copy.detectedNote}
         </p>
         <div className="mt-3 flex items-end gap-3">

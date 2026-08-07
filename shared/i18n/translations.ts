@@ -3,8 +3,11 @@ import { Translations } from "@/shared/types/language";
 export const translations: Translations = {
   en: {
     // Navigation
+    "nav.work": "Work",
+    "nav.experience": "Experience",
+    "nav.about": "About",
     "nav.resume": "Resume",
-    "nav.pitchGame": "Singing training",
+    "nav.pitchMatchingGame": "Pitch Matching Game",
 
     // Header
     "header.resume": "Resume",
@@ -34,8 +37,11 @@ export const translations: Translations = {
   },
   fr: {
     // Navigation
+    "nav.work": "Projets",
+    "nav.experience": "Expérience",
+    "nav.about": "À propos",
     "nav.resume": "CV",
-    "nav.pitchGame": "Entraînement au chant",
+    "nav.pitchMatchingGame": "Pitch Matching Game",
 
     // Header
     "header.resume": "CV",
