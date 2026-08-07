@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import React from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/shared/i18n";
@@ -36,6 +37,7 @@ const RootLayout = ({ children }: RootLayoutProps): React.JSX.Element => {
           <main className="flex flex-1 flex-col print:block">{children}</main>
           <Footer />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
