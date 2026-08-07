@@ -14,13 +14,24 @@ const Navigation = (): React.JSX.Element => {
   const { language, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { href: "/#work", label: t("nav.work") },
+  const isHomePage = pathname === "/";
+  const homeSectionItems = [
     { href: "/#experience", label: t("nav.experience") },
+    { href: "/#work", label: t("nav.work") },
     { href: "/#about", label: t("nav.about") },
+  ];
+  const destinationItems = [
     { href: "/resume/", label: t("nav.resume") },
     { href: "/pitch-game/", label: t("nav.pitchMatchingGame") },
   ];
+  const mobileItems = [
+    ...destinationItems,
+    ...(isHomePage ? homeSectionItems : []),
+  ];
+
+  const isActiveDestination = (href: string): boolean =>
+    (href === "/resume/" && pathname.startsWith("/resume")) ||
+    (href === "/pitch-game/" && pathname.startsWith("/pitch-game"));
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -37,14 +48,27 @@ const Navigation = (): React.JSX.Element => {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#e4e2dc] bg-[#f7f6f2]/95 backdrop-blur-md print:hidden">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-end px-5 sm:px-6 lg:px-8">
-        <div className="hidden items-center gap-7 lg:flex">
-          <nav className="flex items-center gap-6" aria-label="Primary navigation">
-            {navItems.map((item) => {
-              const isActive =
-                (item.href === "/resume/" && pathname.startsWith("/resume")) ||
-                (item.href === "/pitch-game/" &&
-                  pathname.startsWith("/pitch-game"));
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-6">
+          <Link
+            href="/"
+            aria-current={isHomePage ? "page" : undefined}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`relative py-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f7f6f2] ${
+              isHomePage
+                ? "text-[#1b1d21] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-primary-600 after:content-['']"
+                : "text-[#62666d] hover:text-[#1b1d21]"
+            }`}
+          >
+            {t("nav.home")}
+          </Link>
+
+          <nav
+            className="hidden items-center gap-6 lg:flex"
+            aria-label="Site destinations"
+          >
+            {destinationItems.map((item) => {
+              const isActive = isActiveDestination(item.href);
 
               return (
                 <Link
@@ -62,6 +86,25 @@ const Navigation = (): React.JSX.Element => {
               );
             })}
           </nav>
+        </div>
+
+        <div className="hidden items-center gap-7 lg:flex">
+          {isHomePage && (
+            <nav
+              className="flex items-center gap-6"
+              aria-label="Homepage sections"
+            >
+              {homeSectionItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="relative whitespace-nowrap py-1 text-sm font-medium text-[#62666d] transition-colors hover:text-[#1b1d21] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f7f6f2]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          )}
           <LanguageToggle />
         </div>
 
@@ -86,7 +129,7 @@ const Navigation = (): React.JSX.Element => {
             transition={{ duration: 0.16 }}
           >
             <nav className="flex flex-col" aria-label="Mobile navigation">
-              {navItems.map((item) => (
+              {mobileItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

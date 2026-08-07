@@ -3,6 +3,7 @@ import { Translations } from "@/shared/types/language";
 export const translations: Translations = {
   en: {
     // Navigation
+    "nav.home": "Home",
     "nav.work": "Work",
     "nav.experience": "Experience",
     "nav.about": "About",
@@ -37,6 +38,7 @@ export const translations: Translations = {
   },
   fr: {
     // Navigation
+    "nav.home": "Accueil",
     "nav.work": "Projets",
     "nav.experience": "Expérience",
     "nav.about": "À propos",

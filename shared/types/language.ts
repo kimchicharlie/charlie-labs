@@ -11,6 +11,7 @@ export interface LanguageContextType {
 
 export interface TranslationKeys {
   // Navigation
+  "nav.home": string;
   "nav.work": string;
   "nav.experience": string;
   "nav.about": string;
