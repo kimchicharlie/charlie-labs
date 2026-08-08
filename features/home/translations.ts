@@ -22,8 +22,6 @@ export type HomeCopy = {
   core: string;
   platforms: string;
   infrastructure: string;
-  contactTitle: string;
-  contactDescription: string;
 };
 
 export const homeTranslations: Record<Language, HomeCopy> = {
@@ -59,9 +57,6 @@ export const homeTranslations: Record<Language, HomeCopy> = {
     core: "Core",
     platforms: "Web & platforms",
     infrastructure: "Infrastructure",
-    contactTitle: "Want to talk?",
-    contactDescription:
-      "I’m always happy to discuss product engineering, browser capabilities or an interesting technical problem.",
   },
   fr: {
     location: "Montréal, Canada",
@@ -95,8 +90,5 @@ export const homeTranslations: Record<Language, HomeCopy> = {
     core: "Principales",
     platforms: "Web et plateformes",
     infrastructure: "Infrastructure",
-    contactTitle: "On en parle ?",
-    contactDescription:
-      "Je suis toujours disponible pour discuter d’ingénierie produit, des capacités du navigateur ou d’un problème technique intéressant.",
   },
 };
